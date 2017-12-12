@@ -1,0 +1,11 @@
+<div class="col-md-1">
+  <input type="checkbox" ng-model="selectedUsers[user.id]" ng-click="toggleSelection()"/>
+</div>
+<div class="col-md-3">{{user.firstName}}, {{user.lastName}}</div>
+<div class="col-md-3">{{user.email}}</div>
+<div class="col-md-3">{{user.country}}</div>
+<div class="col-md-2">
+  <div class="col-md-1 action-icon" ng-click='edit()'><span class="glyphicon glyphicon-edit"></span></div>
+  <div class="col-md-1 action-icon" ng-click='deleteUser()'><span class="glyphicon glyphicon-remove-circle"></span></div>
+  <div class="col-md-1 action-icon" ng-click='showDetails()'><span class="glyphicon glyphicon-eye-open"></span></div>
+</div>

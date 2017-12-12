@@ -1,0 +1,41 @@
+<div class="panel-body" ng-init="vm.list()">
+  <div class="row action-row">
+    <div class="col-md-4">Selected <b>{{vm.selectedUsers.length}}</b> Users</div>
+    <div class="col-md-8">
+      <button type="button" class="btn btn-default btn-sm pull-right" ng-click='vm.deleteUsers()' ng-disabled="vm.selectedUsers.length == 0">
+        Delete
+      </button>
+      <button type="button" class="btn btn-info btn-sm pull-right" ng-csv="vm.downloadUsers()"
+              csv-header="vm.getCsvHeader()" filename="users-{{vm.date}}.csv" csv-column-order="vm.getColumns()" field-separator=";"
+              ng-disabled="vm.selectedUsers.length == 0">
+        Download
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row th">
+        <div class="col-md-1"></div>
+        <div class="col-md-3"><span class="glyphicon glyphicon-user"></span> Name</div>
+        <div class="col-md-3"><span class="glyphicon glyphicon-envelope"></span> Email</div>
+        <div class="col-md-3"><span class="glyphicon glyphicon-phone-alt"></span> Country</div>
+        <div class="col-md-2"><span class="glyphicon glyphicon-tasks"></span> Action</div>
+      </div>
+      <div ng-repeat="user in vm.users track by $index" class="row {{ $index % 2 == 0 ? 'even' : 'odd' }}">
+        <user-row user="user" on-delete="vm.deleteUserFromList" index="$index" on-select="vm.toggleUserSelection" selected-users-length="vm.selectedUsers.length"></user-row>
+      </div>
+      <!-- pager -->
+      <ul ng-if="vm.pager.pages.length" class="pagination">
+        <li ng-class="{disabled:vm.pager.currentPage === 1}">
+          <a ng-click="vm.setPage(vm.pager.currentPage - 1)">Previous</a>
+        </li>
+        <li class="active">
+          <a ng-click="vm.setPage(vm.pager.currentPage)">{{vm.pager.currentPage}}</a>
+        </li>
+        <li ng-class="{disabled:vm.pager.currentPage === vm.pager.totalPages}">
+          <a ng-click="vm.setPage(vm.pager.currentPage + 1)">Next</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

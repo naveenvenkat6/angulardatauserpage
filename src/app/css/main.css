@@ -1,0 +1,25 @@
+.odd, .even {
+    padding: 5px 10px 5px 10px;
+}
+
+.odd {
+    border: 1px solid #efefef;
+    background: #f7f7f7
+}
+
+.th {
+    background: #efefef;
+   padding: 5px 10px 5px 10px;
+   font-weight:bold;
+}
+
+.action-row {
+    margin-bottom:10px;
+}
+
+.action-row .btn {
+    margin-right:10px;
+}
+.action-icon {
+  cursor: pointer;
+}

@@ -1,0 +1,80 @@
+<div class="panel-body" ng-init="vm.get()">
+  <div class="col-sm-6 col-md-4 col-md-offset-4">
+    <form role="form" method="POST" name="userForm" novalidate>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <strong ng-if="vm.user.id != null">Update User</strong>
+        </div>
+        <div class="panel-body">
+          <input ng-model="vm.user.id" class="form-control" placeholder="id" name="id" type="hidden" autofocus>
+          <fieldset>
+            <div class="row">
+              <div class="col-sm-12 col-md-10  col-md-offset-1 ">
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-user"></i>
+                    </span>
+                    <input ng-model="vm.user.firstName" required  class="form-control" placeholder="First Name" name="firstName" type="text" autofocus>
+                  </div>
+                  <div class="text-danger" ng-messages="userForm.firstName.$error" ng-if="userForm.firstName.$dirty || userForm.$submitted">
+                    <div ng-message="required">* This field is required</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-user"></i>
+                    </span>
+                    <input ng-model="vm.user.lastName" required  class="form-control" placeholder="Last Name" name="lastName" type="text" autofocus>
+                  </div>
+                  <div class="text-danger" ng-messages="userForm.lastName.$error" ng-if="userForm.lastName.$dirty || userForm.$submitted">
+                    <div ng-message="required">* This field is required</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-envelope"></i>
+                    </span>
+                    <input ng-model="vm.user.email" ng-required="true" class="form-control" placeholder="Email" name="email" type="text" autofocus>
+                  </div>
+                  <div class="text-danger" ng-messages="userForm.email.$error" ng-if="userForm.email.$dirty || userForm.$submitted">
+                    <div ng-message="required">* This field is required</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                  <span class="input-group-addon">
+                      <i class="glyphicon glyphicon-phone-alt"></i>
+                  </span>
+                    <input ng-model="vm.user.country" ng-required="true" class="form-control" placeholder="Country" name="country" type="text" value="">
+                  </div>
+                  <div class="text-danger" ng-messages="userForm.country.$error" ng-if="userForm.country.$dirty || userForm.$submitted">
+                    <div ng-message="required">* This field is required</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="panel-footer ">
+          <div class="row">
+            <div class="col-md-4 pull-right">
+              <button type="submit" class="btn btn-primary btn-sm" ng-click="vm.update(userForm.$valid)" ng-disabled="userForm.$invalid || !userForm.$dirty">
+                <span class="glyphicon glyphicon-ok-circle"></span>
+                Update
+              </button>
+            </div>
+            <div class="col-md-3 pull-right">
+              <button type="button" class="btn btn-danger btn-sm" ng-click='vm.cancelUpdate(userForm)'>
+                <span class="glyphicon glyphicon-remove-circle"></span>
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="alert-notification" ng-if="isAlertShown" uib-alert ng-class="'alert-' + (alertType || 'warning')" dismiss-on-timeout="2000" close="hideAlert()">{{alertMessage}}</div>
+
+<div ng-if="isLoadingSpinnerShown || isSavingSpinnerShown || isDeletingSpinnerShown" id="loading-spinner">
+  <div ng-if="isLoadingSpinnerShown">Loading</div>
+  <div ng-if="isSavingSpinnerShown">Saving</div>
+  <div ng-if="isDeletingSpinnerShown">Deleting</div>
+  <div id="loading-wrapper">
+    <div class="loader"></div>
+  </div>
+</div>
+
+

@@ -1,0 +1,37 @@
+<div class="panel-body" ng-model="contact">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <strong>User Details</strong>
+            </div>
+            <div class="panel-body">
+                <table class="table table-user-information">
+                    <tbody>
+                        <tr>
+                            <td>Name:</td>
+                            <td>{{user.firstName}}, {{user.lastName}}</td>
+                        </tr>
+                        <tr>
+                            <td>Email:</td>
+                            <td>{{user.email}}</td>
+                        </tr>
+                        <tr>
+                            <td>Age</td>
+                            <td>{{user.age}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="panel-footer ">
+                <div class="row">
+                    <div class="col-md-3 pull-right">
+                        <button type="button" class="btn btn-danger btn-sm" ng-click='closeDetailsDialog()'>
+                            Close
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
